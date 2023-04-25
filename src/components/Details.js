@@ -16,7 +16,7 @@ const Details = () => {
         <h1 className="text-[#2A215F] text-center font-extrabold text-md md:text-5xl">
           Make a Difference
         </h1>
-        <p className="text-black md:leading-loose text-center md:mt-6 md:w-2/5 text-xs mx-2 md:text-xl md:mx-auto">
+        <p className="text-black lg:leading-loose text-center md:mt-6 lg:w-2/5 text-xs mx-2 md:text-xl md:mx-auto">
           Owning one of these exclusive NFTs is not only a chance to add a
           unique piece of art to your collection but also an opportunity to make
           a difference in someone's life. With every purchase, you become a part

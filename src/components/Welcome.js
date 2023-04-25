@@ -1,7 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import Slider from "./Slider";
 
 const Welcome = () => {
+  const [number, setNumber] = useState(1);
+  function handleIncrement() {
+    setNumber(number + 1);
+  }
+
+  function handleDecrement() {
+    if (number > 1) {
+      setNumber(number - 1);
+    }
+  }
   return (
     <div className="relative max-w-screen">
       <img
@@ -39,9 +49,13 @@ const Welcome = () => {
         </p>
         <div className="flex justify-center gap-4 my-4">
           <div className="border-2 p-2 flex items-center rounded-sm flex-row gap-6 border-[#D08A21]">
-            <button className="text-white text-2xl">-</button>
-            <p className="text-white text-2xl">1</p>
-            <button className="text-white text-2xl">+</button>
+            <button className="text-white text-2xl" onClick={handleDecrement}>
+              -
+            </button>
+            <p className="text-white text-2xl">{number}</p>
+            <button className="text-white text-2xl" onClick={handleIncrement}>
+              +
+            </button>
           </div>
           <button className="bg-[#D08A21] hover:bg-[#744704] py-2 flex items-center md:py-4 px-6 text-xl rounded-sm">
             <p className="text-white">Mint</p>
