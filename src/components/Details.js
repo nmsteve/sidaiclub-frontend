@@ -28,9 +28,15 @@ const Details = () => {
           Meet our Amazing Community
         </p>
         <div className="flex flex-row gap-2 md:gap-6 md:mt-4 items-center justify-center">
-          <FaDiscord className="text-black text-sm md:text-2xl" />
-          <FaTwitter className="text-black text-sm md:text-2xl" />
-          <FaInstagram className="text-black text-sm md:text-2xl" />
+          <a href="/">
+            <FaDiscord className="text-black text-sm md:text-2xl cursor-pointer hover:text-[#2A215F]" />
+          </a>
+          <a href="/">
+            <FaTwitter className="text-black text-sm md:text-2xl cursor-pointer hover:text-[#2A215F]" />
+          </a>
+          <a href="/">
+            <FaInstagram className="text-black text-sm md:text-2xl cursor-pointer hover:text-[#2A215F]" />
+          </a>
         </div>
       </div>
     </div>

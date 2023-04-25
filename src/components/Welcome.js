@@ -3,16 +3,9 @@ import Slider from "./Slider";
 
 const Welcome = () => {
   return (
-    <div
-      className="relative"
-      // style={{
-      //   backgroundImage: "/images/Wave.svg",
-      //   backgroundRepeat: "no-repeat",
-      //   objectFit: "contain",
-      // }}
-    >
+    <div className="relative max-w-screen">
       <img
-        className="w-screen z-0 absolute -top-12 md:-top-44"
+        className="w-full z-0 absolute -top-12 md:-top-44"
         src={"/images/Wave.svg"}
         alt="logo"
       />
@@ -46,13 +39,13 @@ const Welcome = () => {
         </p>
         <div className="flex justify-center gap-4 my-4">
           <div className="border-2 p-2 flex items-center rounded-sm flex-row gap-6 border-[#D08A21]">
-            <p className="text-white text-2xl">-</p>
+            <button className="text-white text-2xl">-</button>
             <p className="text-white text-2xl">1</p>
-            <p className="text-white text-2xl">+</p>
+            <button className="text-white text-2xl">+</button>
           </div>
-          <div className="bg-[#D08A21] py-2 flex items-center md:py-4 px-6 text-xl rounded-sm">
+          <button className="bg-[#D08A21] hover:bg-[#744704] py-2 flex items-center md:py-4 px-6 text-xl rounded-sm">
             <p className="text-white">Mint</p>
-          </div>
+          </button>
         </div>
         <img
           className="w-screen z-4 bottom-0"

@@ -25,9 +25,9 @@ const Hearts = () => {
             Maa with education and helping them achieve their dreams.
           </p>
           <div className="flex justify-center mt-2 md:mb-16 md:mt-8">
-            <div className="mx-auto border-[#DC7171] border-[1px] rounded-sm">
+            <button className="mx-auto border-[#DC7171] border-[1px] rounded-sm hover:bg-gray-300">
               <p className="text-[#DC7171] p-2">Learn More</p>
-            </div>
+            </button>
           </div>
         </div>
       </div>
@@ -35,7 +35,7 @@ const Hearts = () => {
         <AiOutlineMail size={20} color="white" />
         <p className="text-gray-300">collection@entitosidai.com</p>
       </div>
-      <img className="w-screen" src={"/images/sofia.svg"} alt="logo" />
+      <img className="w-screen " src={"/images/sofia.svg"} alt="logo" />
     </div>
   );
 };
