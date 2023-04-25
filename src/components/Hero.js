@@ -9,17 +9,17 @@ const Hero = () => {
         alt="logo"
       />
       <img
-        className=" absolute z-0 left-10 top-20 "
+        className="hidden lg:block absolute z-0 left-10 top-20 "
         src={"/images/Rectangle_5.svg"}
         alt="logo"
       />
       <img
-        className="absolute z-0 right-20 top-24 "
+        className="hidden lg:block absolute z-0 right-20 top-24 "
         src={"/images/Rectangle_7.svg"}
         alt="logo"
       />
       <img
-        className="absolute z-8 right-36 bottom-10 "
+        className="hidden lg:block absolute z-8 right-36 bottom-10 "
         src={"/images/Rectangle_8.svg"}
         alt="logo"
       />
