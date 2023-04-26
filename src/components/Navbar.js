@@ -22,7 +22,7 @@ const Navbar = () => {
             </a>
           </div>
           <button className="border-[#DC7171] hover:bg-gray-300 border-[1px] p-2 rounded-sm">
-            <p className="text-[#DC7171] text-center text-xs">BUY ON OPENSEA</p>
+            <p className="text-[#DC7171] text-center text-s">Connect</p>
           </button>
         </div>
       </div>
