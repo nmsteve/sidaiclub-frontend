@@ -28,6 +28,7 @@ const Hero = () => {
         src={"/images/girl.svg"}
         alt="logo"
       />
+      <div className="absolute bottom-0 w-full h-24 bg-gradient-to-b from-transparent to-[#2A215F]"></div>
     </div>
   );
 };
