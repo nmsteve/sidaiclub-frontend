@@ -3,7 +3,7 @@ import { AiOutlineMail } from "react-icons/ai";
 
 const Hearts = () => {
   return (
-    <div className="relative items-center md:mt-96 sm:mt-96 mt-72">
+    <div className="relative items-center md:mt-96 sm:mt-96 mt-60">
       <div className=" border m-auto mt-40 border-[#DC7171] rounded-md  w-4/5 ">
         <div className="xl:-mt-40 items-center mb-6 rounded-full">
           <img
