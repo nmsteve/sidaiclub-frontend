@@ -38,13 +38,13 @@ const Welcome = () => {
         src={"/images/wave2.svg"}
         alt="logo"
       /> */}
-      <img
+      {/* <img
         className={
           "w-full z-0 absolute -top-12 md:-top-44 transition-all duration-10000 animate-pulse"
         }
         src={"/images/Wave.svg"}
         alt="logo"
-      />
+      /> */}
 
       <div className="relative z-4 pt-16 md:pt-24">
         <h1 className="text-white text-center font-extrabold text-2xl md:text-5xl">

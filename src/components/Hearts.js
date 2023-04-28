@@ -3,11 +3,11 @@ import { AiOutlineMail } from "react-icons/ai";
 
 const Hearts = () => {
   return (
-    <div className="relative items-center md:mt-96">
-      <div className="border m-auto mt-20 border-[#DC7171] rounded-md  w-4/5 ">
-        <div className="-mt-12 md:-mt-40 items-center mb-6 rounded-full">
+    <div className="relative items-center md:mt-96 sm:mt-96 mt-72">
+      <div className=" border m-auto mt-40 border-[#DC7171] rounded-md  w-4/5 ">
+        <div className="xl:-mt-40 items-center mb-6 rounded-full">
           <img
-            className="mx-auto w-2/5 md:w-1/5  bg-[#2A215F] rounded-full object-scale-down overflow-visible"
+            className="-mt-16 md:-mt-32 sm:-mt-20 mx-auto w-2/5 xl:w-1/5 lg:rounded-full bg-[#2A215F]  object-scale-down overflow-visible"
             src={"/images/hearts.svg"}
             alt="logo"
           />
