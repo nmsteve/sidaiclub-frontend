@@ -33,7 +33,7 @@ const Hearts = () => {
       </div>
       <div className="absolute flex flex-col z-10 left-0 right-0 mx-auto bottom-10 items-center justify-center">
         <AiOutlineMail size={20} color="white" />
-        <p className="text-gray-300">collection@entitosidai.com</p>
+        <p className="text-gray-300">entito@sidaiclub.com</p>
       </div>
       <img className="w-screen " src={"/images/sofia.svg"} alt="logo" />
     </div>
