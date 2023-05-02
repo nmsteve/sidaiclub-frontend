@@ -115,7 +115,7 @@ const Welcome = () => {
             <p className="font-serif mb-5">
               The collection will be launched on{" "}
               <span className="text-[#F2CECE]">July 1, 2023</span>. However, you
-              can join advance minting at{" "}
+              can join Allowlist at{" "}
               <span className="text-[#dc7171ee]">25% discount</span>.
             </p>
             <button
