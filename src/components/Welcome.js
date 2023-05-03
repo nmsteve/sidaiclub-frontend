@@ -67,7 +67,7 @@ const Welcome = () => {
         <p className="text-white  md:text-lg font-serif tracking-wide g-2 whitespace-pre-line leading-8 text-base mx-6 md:w-1/2 text-center md:mx-auto">
           Introducing the
           <span className="text-[#DC7171]"> Entito Sidai Collection</span> - a
-          limited edition set of 10,000 NFTs that embody the essence of Maasai
+          limited edition set of 1,000 NFTs that embody the essence of Maasai
           culture, diversity, and beauty. In the Maa language, "Entito (
           |en’-tee-toh| )"
           <FaVolumeUp
@@ -115,7 +115,7 @@ const Welcome = () => {
             <p className="font-serif mb-5">
               The collection will be launched on{" "}
               <span className="text-[#F2CECE]">July 1, 2023</span>. However, you
-              can join Allowlist at{" "}
+              can join Allowlist for a {" "}
               <span className="text-[#dc7171ee]">25% discount</span>.
             </p>
             <button
