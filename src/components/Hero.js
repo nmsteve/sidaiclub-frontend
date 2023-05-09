@@ -41,7 +41,7 @@ const Hero = () => {
       />
       <img
         className="relative w-screen z-2"
-        src={"/images/girl.svg"}
+        src={"https://res.cloudinary.com/dk8epvq9b/image/upload/v1683627835/girl1_kjfvou.png"}
         alt="logo"
       />
       <div className="absolute bottom-0 w-full h-full ">
