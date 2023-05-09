@@ -20,7 +20,7 @@ const Hero = () => {
 
       <img
         className="w-screen absolute z-0 opacity-60"
-        src={"/images/earth1.png"}
+        src={"https://res.cloudinary.com/dk8epvq9b/image/upload/v1683651522/earth1_qqvttg.webp"}
         alt="logo"
       />
 
@@ -41,7 +41,7 @@ const Hero = () => {
       />
       <img
         className="relative w-screen z-2"
-        src={"https://res.cloudinary.com/dk8epvq9b/image/upload/v1683627835/girl1_kjfvou.png"}
+        src={"https://res.cloudinary.com/dk8epvq9b/image/upload/v1683627835/girl1_kjfvou.webp"}
         alt="logo"
       />
       <div className="absolute bottom-0 w-full h-full ">
