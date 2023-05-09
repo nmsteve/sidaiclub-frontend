@@ -24,11 +24,11 @@ const Hearts = () => {
             diversity, culture, and beauty, you'll be empowering the girls of
             Maa with education and helping them achieve their dreams.
           </p>
-          <div className="flex justify-center mt-2 md:mb-16 md:mt-8">
+          {/* <div className="flex justify-center mt-2 md:mb-16 md:mt-8">
             <button className="mx-auto border-[#DC7171] border-[1px] rounded-sm hover:bg-gray-300">
               <p className="text-[#DC7171] p-2">Learn More</p>
             </button>
-          </div>
+          </div> */}
         </div>
       </div>
       <div className="absolute flex flex-col z-10 left-0 right-0 mx-auto bottom-10 items-center justify-center">
