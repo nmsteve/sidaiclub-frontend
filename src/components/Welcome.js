@@ -35,24 +35,7 @@ const Welcome = () => {
 
   return (
     <div className="relative max-w-screen">
-      {/* <img
-        className={"w-full z-0 absolute -top-12 md:-top-44"}
-        src={"/images/Wave.svg"}
-        alt="logo"
-      />
-      <img
-        className="w-full z-0 absolute -top-12 md:-top-44"
-        src={"/images/wave2.svg"}
-        alt="logo"
-      /> */}
-      {/* <img
-        className={
-          "w-full z-0 absolute -top-12 md:-top-44 transition-all duration-10000 animate-pulse"
-        }
-        src={"/images/Wave.svg"}
-        alt="logo"
-      /> */}
-
+      
       <div className="relative z-4 pt-16 md:pt-24">
         <h1 className="text-white text-center font-extrabold text-2xl md:text-5xl">
           Welcome to the
@@ -115,11 +98,11 @@ const Welcome = () => {
             <p className="font-serif mb-5">
               The collection will be launched on{" "}
               <span className="text-[#F2CECE]">July 1, 2023</span>. However, you
-              can join Allowlist for a {" "}
+              can join allowlist to get a {" "}
               <span className="text-[#dc7171ee]">25% discount</span>.
             </p>
             <button
-              onClick={() => setShowMint(true)}
+              onClick={() => setShowMint()}
               className="bg-[#DC7171] p-2 rounded w-28"
             >
               Join
