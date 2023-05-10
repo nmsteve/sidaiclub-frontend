@@ -21,23 +21,23 @@ const Hero = () => {
       <img
         className="w-screen absolute z-0 opacity-60"
         src={"https://res.cloudinary.com/dk8epvq9b/image/upload/v1683651522/earth1_qqvttg.webp"}
-        alt="logo"
+        alt="earth1"
       />
 
       <img
         className="hidden lg:block absolute z-0 left-10 top-20 "
         src={"/images/Rectangle_5.svg"}
-        alt="logo"
+        alt="Rectangle_5"
       />
       <img
         className="hidden lg:block absolute z-0 right-20 top-24 "
         src={"/images/Rectangle_7.svg"}
-        alt="logo"
+        alt="Rectangle_7"
       />
       <img
         className="hidden lg:block absolute z-8 right-36 bottom-10 "
         src={"/images/Rectangle_8.svg"}
-        alt="logo"
+        alt="Rectangle_8"
       />
       <img
         className="relative w-screen z-2"
@@ -55,7 +55,7 @@ const Hero = () => {
         <img
           className="absolute inset-0 -bottom-11 w-full h-full box-border block"
           src={"/images/animated.svg"}
-          alt="logo"
+          alt="animated"
         />
       </div>
     </div>
