@@ -54,9 +54,8 @@ const Hero = () => {
         <div className="absolute bottom-0 w-full h-8 bg-gradient-to-b from-transparent to-[#2A215F]"></div>
         <img
           className="absolute inset-0 -bottom-11 w-full h-full box-border block"
-          src={"/images/animated.svg"}
-          alt="animated"
-        />
+          src="https://res.cloudinary.com/dk8epvq9b/image/upload/v1683721385/animated_vwh8dt.svg"
+          alt="Animated"/>
       </div>
     </div>
   );
