@@ -20,7 +20,7 @@ const Hero = () => {
 
       <img
         className="w-screen absolute z-0 opacity-60"
-        src={"/images/earth1.png"}
+        src={"https://res.cloudinary.com/dk8epvq9b/image/upload/v1683651522/earth1_qqvttg.webp"}
         alt="logo"
       />
 
@@ -41,8 +41,14 @@ const Hero = () => {
       />
       <img
         className="relative w-screen z-2"
-        src={"/images/girl.svg"}
-        alt="logo"
+
+        src="https://res.cloudinary.com/dk8epvq9b/image/upload/v1683627835/girl1_kjfvou.webp"
+        srcset="https://res.cloudinary.com/dk8epvq9b/image/upload/w_320/v1683627835/girl1_kjfvou.webp 320w,
+             https://res.cloudinary.com/dk8epvq9b/image/upload/w_480/v1683627835/girl1_kjfvou.webp 480w,
+             https://res.cloudinary.com/dk8epvq9b/image/upload/w_800/v1683627835/girl1_kjfvou.webp 800w"
+        sizes="(max-width: 320px) 280px,(max-width: 480px) 440px,800px"
+        alt="Girl"
+
       />
       <div className="absolute bottom-0 w-full h-full ">
         <div className="absolute bottom-0 w-full h-8 bg-gradient-to-b from-transparent to-[#2A215F]"></div>
