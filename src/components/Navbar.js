@@ -9,8 +9,8 @@ const Navbar = () => {
         <div className="w-2/5">
           <img src={"/images/Layer_1.svg"} alt="logo" />
         </div>
-        <div className="grid grid-cols-2  md:gap-6 items-center px-2 md:mr-16">
-          <div className="flex flex-row gap-2 md:gap-6">
+        <div className="grid grid-cols-2  md:gap-6 items-center px-2 md:mr-16 ">
+          <div className="flex flex-row gap-4 md:gap-6 sm:gap-3 mr-8">
             <a href="/">
               <FaDiscord className="text-white text-lg md:text-xl cursor-pointer hover:text-[#DC7171]" />
             </a>
