@@ -55,7 +55,7 @@ const Hero = () => {
         <img
           className="absolute inset-0 -bottom-11 w-full h-full box-border block"
           src="https://res.cloudinary.com/dk8epvq9b/image/upload/v1683721385/animated_vwh8dt.svg"
-          alt="Animated"/>
+          alt=""/>
       </div>
     </div>
   );
