@@ -5,19 +5,13 @@ import { FaVolumeUp } from "react-icons/fa";
 const Welcome = () => {
 
   const [number, setNumber] = useState(1);
-  const [isPlaying, setIsPlaying] = useState(false);
   const [showMint, setShowMint] = useState(false)
 
-  const audioRef = useRef(null);
+  const audio1Ref = useRef(null);
+  const audio2Ref = useRef(null);
 
-  const handleAudioClick = () => {
-    if (!isPlaying) {
+  const handleAudioClick = (audioRef) => {
       audioRef?.current.play();
-      setIsPlaying(true);
-    } else {
-      audioRef?.current.pause();
-      setIsPlaying(false);
-    }
   };
 
   function handleIncrement() {
@@ -31,7 +25,6 @@ const Welcome = () => {
   }
 
   // function show
-
 
   return (
     <div className="relative max-w-screen">
@@ -55,20 +48,23 @@ const Welcome = () => {
           |en’-tee-toh| )"
           <FaVolumeUp
             className="text-sm inline cursor-pointer mx-2 text-[#DC7171]"
-            onClick={handleAudioClick}
+            onClick={() => handleAudioClick(audio1Ref)}
           />
           translates to a girl, and "Sidai ( |see’-da-ee| )"
           <FaVolumeUp
             className="text-sm inline cursor-pointer mx-2 text-[#DC7171]"
-            onClick={handleAudioClick}
+            onClick={() => handleAudioClick(audio2Ref)}
           />
           means beautiful - and that's precisely what this collection
           represents: the beauty of a Maasai girl adorned in traditional beaded
           ornaments. Each NFT features a unique pattern inspired by the
           intricate details of the ornaments, including a hair cover, forehead
           bracelet, earrings, and neck bracelet.
-          <audio ref={audioRef}>
-            <source src={"/audio/audio.mp3"} type="audio/mpeg" />
+          <audio ref={audio1Ref}>
+            <source src={"/audio/entito.ogg"} type="audio/ogg" />
+          </audio>
+          <audio ref={audio2Ref}>
+            <source src={"/audio/sidai.ogg"} type="audio/ogg" />
           </audio>
         </p>
 
