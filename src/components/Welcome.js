@@ -94,7 +94,7 @@ const Welcome = () => {
             <p className="font-serif mb-5">
               The collection will be launched on{" "}
               <span className="text-[#F2CECE]">July 1, 2023</span>. However, you
-              can join allowlist to get a {" "}
+              can join Waitlist to get a {" "}
               <span className="text-[#dc7171ee]">25% discount</span>.
             </p>
             <button
