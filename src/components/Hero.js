@@ -8,8 +8,8 @@ const Hero = () => {
 
     <div className="relative">
 
-      <div class="flex flex-col sm:flex-row items-center bg-yellow-500 text-white text-sm font-bold px-4 py-3" role="alert">
-        <div class="sm:mr-2 sm:mb-0 mb-2">
+      <div className="flex flex-col sm:flex-row items-center bg-yellow-500 text-white text-sm font-bold px-4 py-3" role="alert">
+        <div className="sm:mr-2 sm:mb-0 mb-2">
           <FontAwesomeIcon class="fill-current w-20 h-30 sm:w-10 sm:h-15" icon={icon({ name: "triangle-exclamation", style: "" })} />
         </div>
         <div>
@@ -43,7 +43,7 @@ const Hero = () => {
         className="relative w-screen z-2"
 
         src="https://res.cloudinary.com/dk8epvq9b/image/upload/v1683627835/girl1_kjfvou.webp"
-        srcset="https://res.cloudinary.com/dk8epvq9b/image/upload/w_320/v1683627835/girl1_kjfvou.webp 320w,
+        srcSet="https://res.cloudinary.com/dk8epvq9b/image/upload/w_320/v1683627835/girl1_kjfvou.webp 320w,
              https://res.cloudinary.com/dk8epvq9b/image/upload/w_480/v1683627835/girl1_kjfvou.webp 480w,
              https://res.cloudinary.com/dk8epvq9b/image/upload/w_800/v1683627835/girl1_kjfvou.webp 800w"
         sizes="(max-width: 320px) 280px,(max-width: 480px) 440px,800px"
