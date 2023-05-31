@@ -92,8 +92,8 @@ const Welcome = () => {
           :
           <div className="bg-[#DC71712E] rounded-lg border-[2px] border-dashed border-[#DC7171] mt-10 w-2/5 mx-auto p-8 text-center text-white">
             <p className="font-serif mb-5">
-              The collection will be launched on{" "}
-              <span className="text-[#F2CECE]">July 1, 2023</span>. However, you
+              The collection is scheduled to be launched on {" "} 
+              <span className="text-[#F2CECE]"> July TBD,2023</span> via an OpenSea drop for 0.1 ETH . However, you
               can join Waitlist to get a {" "}
               <span className="text-[#dc7171ee]">25% discount</span>.
             </p>
