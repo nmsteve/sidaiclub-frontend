@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
 import Slider from "./Slider";
 import { FaVolumeUp } from "react-icons/fa";
+import { joinWaitList } from "../connect/connectChain";
 
 const Welcome = () => {
 
@@ -98,7 +99,7 @@ const Welcome = () => {
               <span className="text-[#dc7171ee]">25% discount</span>.
             </p>
             <button
-              onClick={() => setShowMint()}
+              onClick={() => joinWaitList()}
               className="bg-[#DC7171] p-2 rounded w-28"
             >
               Join

@@ -1,4 +1,4 @@
-
+import {ethers} from 'ethers'
 
 const { ethereum } = window;
 
@@ -63,4 +63,34 @@ export const handleDisconnect = async (setConnectedAddress) => {
     }
 };
 
+export const joinWaitList = async () => {
 
+    //connect if not connected
+    await ethereum.request({ method: 'eth_requestAccounts' });
+
+    //accessing provived changed to this
+    let provider = new ethers.BrowserProvider(window.ethereum)
+
+    //required to intract with a deployed contract
+    const signer = await provider.getSigner(ethereum.selectedAddress)
+    console.log(signer)
+    const contractAddress = "0xA5f62C75073E47ECd140a5234Ba514A1C36Eed27"
+    const contractABI =['function joinWaitlist() public']   
+
+    const contract = new ethers.Contract(contractAddress, contractABI, signer);
+
+    try {
+        const transaction = await contract.joinWaitlist();
+        await transaction.wait();
+        console.log("Successfully joined the waitlist!");
+    } catch (error) {
+        console.error("Error joining the waitlist:", error);
+        if (error.message.includes('Already on the waitlist')) {
+            alert(`Transaction reverted: Already on the waitlist'`);
+        } else {
+            alert('Error joining the waitlist. Please try again later.');
+        }
+    }
+}
+
+    
