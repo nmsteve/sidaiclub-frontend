@@ -27,13 +27,13 @@ const Details = () => {
           Meet our Amazing Community
         </p>
         <div className="flex flex-row gap-2 xs:gap-12 sm:mt-4 items-center justify-center mt-2 ">
-          <a href="/">
+          <a href="https://discord.gg/67KDsmxBKs" target="_blank" rel="noopener noreferrer">
             <FaDiscord className="text-black text-sm sm:text-xl  cursor-pointer hover:text-[#2A215F] mx-2" />
           </a>
-          <a href="/">
+          <a href="/https://twitter.com/EntitoSidaiNFTs" target="_blank" rel="noopener noreferrer">
             <FaTwitter className="text-black text-sm sm:text-xl cursor-pointer hover:text-[#2A215F] mx-2" />
           </a>
-          <a href="/">
+          <a href="https://www.instagram.com/entitosidainfts/" target="_blank" rel="noopener noreferrer">
             <FaInstagram className="text-black text-sm sm:text-xl cursor-pointer hover:text-[#2A215F] mx-2" />
           </a>
         </div>
