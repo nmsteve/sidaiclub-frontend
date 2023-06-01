@@ -1,12 +1,15 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Slider from "./Slider";
 import { FaVolumeUp } from "react-icons/fa";
-import { joinWaitList } from "../connect/connectChain";
+import { checkSeatFilled, joinWaitList } from "../connect/connectChain";
 
-const Welcome = () => {
+
+const Welcome = ({waitlisted}) => {
 
   const [number, setNumber] = useState(1);
   const [showMint, setShowMint] = useState(false)
+  const [seatsFilled, setSeatsFilled] = useState(0)
+ 
 
   const audio1Ref = useRef(null);
   const audio2Ref = useRef(null);
@@ -25,7 +28,10 @@ const Welcome = () => {
     }
   }
 
-  // function show
+  useEffect(() => {
+    checkSeatFilled(setSeatsFilled)
+  },[])
+
 
   return (
     <div className="relative max-w-screen">
@@ -90,20 +96,28 @@ const Welcome = () => {
               </button>
             </div>
           </div>
-          :
+          : 
           <div className="bg-[#DC71712E] rounded-lg border-[2px] border-dashed border-[#DC7171] mt-10 w-2/5 mx-auto p-8 text-center text-white">
             <p className="font-serif mb-5">
               The collection is scheduled to be launched on {" "} 
-              <span className="text-[#F2CECE]"> July TBD,2023</span> via an OpenSea drop for 0.1 ETH . However, you
+              <span className="text-[#F2CECE]"> July 10, 2023</span> via an OpenSea drop for 0.1 ETH . However, you
               can join Waitlist to get a {" "}
               <span className="text-[#dc7171ee]">25% discount</span>.
             </p>
+           
             <button
-              onClick={() => joinWaitList()}
-              className="bg-[#DC7171] p-2 rounded w-28"
+              onClick={() => joinWaitList(setSeatsFilled)}
+              className={`bg-[#DC7171] hover:bg-gray-300 border-[1px] p-2 rounded w-28`}
+              disabled={waitlisted}
+              
             >
-              Join
+              {waitlisted ? 'Joined':'Join'}
             </button>
+
+            <p className="font-serif mt-3 ">{seatsFilled} / 500</p>
+           
+            <p className="font-serif mt-10">Joining is FREE; however, paying the transaction gas fee is proof of genuine interest.</p>
+           
           </div>
         }
         <img

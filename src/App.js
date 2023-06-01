@@ -1,28 +1,50 @@
+
 import Navbar from "./components/Navbar";
 import "./App.css";
-import React from "react";
-// import { FaDiscord, FaInstagram, FaTwitter } from "react-icons/fa";
-// import { AiOutlineMail } from "react-icons/ai";
+import React, { useEffect, useState } from "react";
 import Hero from "./components/Hero";
 import Welcome from "./components/Welcome";
 import Details from "./components/Details";
-// import Footer from "./components/Footer";
 import Hearts from "./components/Hearts";
+import { checkIfConnected, checkIfJoined } from './connect/connectChain'
+const { ethereum } = window;
 
 function App() {
+
+  const [connectedAddress, setConnectedAddress] = useState()
+  const [waitlisted, setWaitlested] = useState(false)
+  if (ethereum) {
+    ethereum.on('accountsChanged', () => {
+      setConnectedAddress(ethereum.selectedAddress)
+    });
+    
+  }
+  useEffect(() => {
+    const checkConnected = async () => {
+      await checkIfConnected(setConnectedAddress)
+    }
+   
+    async function checkJoined() {
+      await checkIfJoined(setWaitlested)
+    }
+
+    checkConnected()
+    checkJoined()
+
+    console.log(connectedAddress)
+    console.log(waitlisted)
+
+  }, [connectedAddress, waitlisted])
+
   return (
     <div className="min-h-screen bg-[#2A215F] w-screen overflow-hidden">
-      <Navbar />
+      <Navbar connectedAddress={connectedAddress} setConnectedAddress={setConnectedAddress} />
 
-      <Hero />
-
-      <Welcome />
-
-      <Details />
-
+      <Hero/>
+      <Welcome connectedAddress={connectedAddress} waitlisted={waitlisted }/>
+      <Details/>
       <Hearts />
-
-      {/* <Footer /> */}
+      
     </div>
   );
 }

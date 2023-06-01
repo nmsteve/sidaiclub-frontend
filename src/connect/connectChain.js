@@ -2,16 +2,74 @@ import {ethers} from 'ethers'
 
 const { ethereum } = window;
 
+//accessing provived changed to this
+let provider = new ethers.BrowserProvider(window.ethereum)
+
+// Contract ABI
+const contractABI = [
+    {
+        "inputs": [],
+        "name": "MAX_WAITLIST_SEATS",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "joinWaitlist",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "seatsFilled",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "name": "waitlisted",
+        "outputs": [
+            {
+                "internalType": "bool",
+                "name": "",
+                "type": "bool"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    }
+]
+
+//Deployed contract address
+const contractAddress = "0xA5f62C75073E47ECd140a5234Ba514A1C36Eed27"
+
 //ethereum event reload on chain change
 if (ethereum) {
     ethereum.on('chainChanged', () => {
         window.location.reload(false)
     })
 
-
-    ethereum.on('accountsChanged', () => {
-        
-    });
 }
 
 export const checkIfConnected = async (setConnectedAddress) => {
@@ -23,7 +81,6 @@ export const checkIfConnected = async (setConnectedAddress) => {
 
     try {
         if (ethereum.selectedAddress) {
-            console.log(ethereum.selectedAddress)
             await setConnectedAddress(ethereum.selectedAddress)
         }
         
@@ -35,13 +92,12 @@ export const checkIfConnected = async (setConnectedAddress) => {
 
 export const connectMetaMask = async (setConnectedAddress) => {
     if (!ethereum) {
-        console.log("Please install MetaMask to connect.");
+        alert("Please install MetaMask to connect.");
         return;
     }
 
     try {
         await ethereum.request({ method: 'eth_requestAccounts' });
-        console.log("Connected to MetaMask!");
         setConnectedAddress(ethereum.selectedAddress)
     } catch (error) {
         console.error("Failed to connect to MetaMask:", error);
@@ -63,17 +119,37 @@ export const handleDisconnect = async (setConnectedAddress) => {
     }
 };
 
-export const joinWaitList = async () => {
+export const checkIfJoined = async (setWaitlested) => {
+   
+    const contract = new ethers.Contract(contractAddress, contractABI, provider);
+
+    try {
+
+        const waitlisted = await contract.waitlisted(ethereum.selectedAddress)
+        if (waitlisted === true) {
+            setWaitlested(true)
+        } else{
+            setWaitlested(false)
+        }
+
+    } catch (error) {
+        console.error(error.message)
+    }
+
+}
+
+export const joinWaitList = async (setSeatsFilled) => {
+
+    if (!ethereum) {
+        alert("Please install MetaMask to connect.");
+        return;
+    }
 
     //connect if not connected
     await ethereum.request({ method: 'eth_requestAccounts' });
 
-    //accessing provived changed to this
-    let provider = new ethers.BrowserProvider(window.ethereum)
-
     //required to intract with a deployed contract
     const signer = await provider.getSigner(ethereum.selectedAddress)
-    console.log(signer)
     const contractAddress = "0xA5f62C75073E47ECd140a5234Ba514A1C36Eed27"
     const contractABI =['function joinWaitlist() public']   
 
@@ -81,7 +157,9 @@ export const joinWaitList = async () => {
 
     try {
         const transaction = await contract.joinWaitlist();
-        await transaction.wait();
+        await transaction.wait(1);
+        const seatsFilled = await contract.seatsFilled()
+        setSeatsFilled(seatsFilled)
         console.log("Successfully joined the waitlist!");
     } catch (error) {
         console.error("Error joining the waitlist:", error);
@@ -91,6 +169,24 @@ export const joinWaitList = async () => {
             alert('Error joining the waitlist. Please try again later.');
         }
     }
+}
+
+export const checkSeatFilled = async (setSeatsFilled) => {
+
+    //connect to deployed contract
+    const contract = new ethers.Contract(contractAddress, contractABI, provider)
+
+    try {
+        const seatsFilled = (await contract.seatsFilled()).toString()
+        setSeatsFilled(seatsFilled)
+        
+        
+    } catch (error) {
+        console.error(error.message)
+        
+    }
+
+
 }
 
     

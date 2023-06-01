@@ -13,7 +13,7 @@ const Hero = () => {
           <FontAwesomeIcon class="fill-current w-20 h-30 sm:w-10 sm:h-15" icon={icon({ name: "triangle-exclamation", style: "" })} />
         </div>
         <div>
-          <p>We are currently working on this website and anticipate to be ready by June 1st. If you have any questions, please feel free to contact us via email at entito@sidaiclub.com. Thank you for your patience as we work diligently to ensure everything is in order.</p>
+          <p>We are currently working on this website and anticipate to be ready by June 10. If you have any questions, please feel free to contact us via email at entito@sidaiclub.com. Thank you for your patience as we work diligently to ensure everything is in order.</p>
         </div>
       </div>
 

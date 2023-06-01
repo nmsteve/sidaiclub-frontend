@@ -1,27 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 // import {logo} from ""
 import { FaDiscord, FaTwitter, FaInstagram } from "react-icons/fa";
 
-import { connectMetaMask, checkIfConnected, formatAddress, handleDisconnect} from '../connect/connectChain'
+import { connectMetaMask,formatAddress, handleDisconnect} from '../connect/connectChain'
 
 import { AiOutlineUser, AiOutlineLogout } from 'react-icons/ai';
 
 
-const Navbar = () => {
-  const [connectedAddress, setConnectedAddress] = useState()
-
-  useEffect(() => {
-    const connectOnLoad = async () => {
-        await checkIfConnected(setConnectedAddress)
-        console.log(connectedAddress)
-      
-    }
-
-    connectOnLoad()
-    
-
-  },[])
-
+const Navbar = ({connectedAddress, setConnectedAddress}) => {
+  
   return (
     <div className="w-screen">
       <div className="flex flex-row justify-between gap-4 p-2 items-center">
@@ -30,13 +17,13 @@ const Navbar = () => {
         </div>
         <div className="grid grid-cols-2  md:gap-6 items-center px-2 md:mr-16 ">
           <div className="flex flex-row gap-4 md:gap-6 sm:gap-3 mr-8">
-            <a href="/">
+            <a href="https://discord.gg/67KDsmxBKs" target="_blank" rel="noopener noreferrer">
               <FaDiscord className="text-white text-lg md:text-xl cursor-pointer hover:text-[#DC7171]" />
             </a>
-            <a href="/">
+            <a href="/https://twitter.com/EntitoSidaiNFTs" target="_blank" rel="noopener noreferrer">
               <FaTwitter className="text-white text-lg md:text-xl cursor-pointer hover:text-[#DC7171]" />
             </a>
-            <a href="/">
+            <a href="https://www.instagram.com/entitosidainfts" target="_blank" rel="noopener noreferrer">
               <FaInstagram className="text-white text-lg md:text-xl cursor-pointer hover:text-[#DC7171]" />
             </a>
           </div>
@@ -48,12 +35,12 @@ const Navbar = () => {
                   {formatAddress(connectedAddress)}
                 </p>
               </div>
-              <button
+              {/* <button
                 className="absolute right-0 top-0 w-8 h-full flex items-center justify-center text-[#DC7171]"
                 onClick={() => { handleDisconnect(setConnectedAddress)}}
               >
                 <AiOutlineLogout />
-              </button>
+              </button> */}
             </div>
             
           ) : (
