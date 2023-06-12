@@ -8,14 +8,14 @@ const Hero = () => {
 
     <div className="relative">
 
-      <div className="flex flex-col sm:flex-row items-center bg-yellow-500 text-white text-sm font-bold px-4 py-3" role="alert">
+      {/* <div className="flex flex-col sm:flex-row items-center bg-yellow-500 text-white text-sm font-bold px-4 py-3" role="alert">
         <div className="sm:mr-2 sm:mb-0 mb-2">
           <FontAwesomeIcon class="fill-current w-20 h-30 sm:w-10 sm:h-15" icon={icon({ name: "triangle-exclamation", style: "" })} />
         </div>
         <div>
-          <p>We are currently working on this website and anticipate to be ready by June 10. If you have any questions, please feel free to contact us via email at entito@sidaiclub.com. Thank you for your patience as we work diligently to ensure everything is in order.</p>
+          <p>We are currently working on this website and anticipate to be ready by June 10 TH. If you have any questions, please feel free to contact us via email at entito@sidaiclub.com. Thank you for your patience as we work diligently to ensure everything is in order.</p>
         </div>
-      </div>
+      </div> */}
 
 
       <img
