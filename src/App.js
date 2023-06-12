@@ -12,7 +12,7 @@ const { ethereum } = window;
 function App() {
 
   const [connectedAddress, setConnectedAddress] = useState()
-  const [waitlisted, setWaitlested] = useState(false)
+  const [waitlisted,setWaitlisted] = useState(false)
   if (ethereum) {
     ethereum.on('accountsChanged', () => {
       setConnectedAddress(ethereum.selectedAddress)
@@ -25,7 +25,7 @@ function App() {
     }
    
     async function checkJoined() {
-      await checkIfJoined(setWaitlested)
+      await checkIfJoined(setWaitlisted)
     }
 
     checkConnected()
@@ -38,7 +38,7 @@ function App() {
 
   return (
     <div className="min-h-screen bg-[#2A215F] w-screen overflow-hidden">
-      <Navbar connectedAddress={connectedAddress} setConnectedAddress={setConnectedAddress} />
+      <Navbar connectedAddress={connectedAddress} setConnectedAddress={setConnectedAddress} /                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        >
 
       <Hero/>
       <Welcome connectedAddress={connectedAddress} waitlisted={waitlisted }/>

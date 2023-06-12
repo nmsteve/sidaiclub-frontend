@@ -119,7 +119,7 @@ export const handleDisconnect = async (setConnectedAddress) => {
     }
 };
 
-export const checkIfJoined = async (setWaitlested) => {
+export const checkIfJoined = async (setWaitlisted) => {
    
     const contract = new ethers.Contract(contractAddress, contractABI, provider);
 
@@ -127,9 +127,9 @@ export const checkIfJoined = async (setWaitlested) => {
 
         const waitlisted = await contract.waitlisted(ethereum.selectedAddress)
         if (waitlisted === true) {
-            setWaitlested(true)
+           setWaitlisted(true)
         } else{
-            setWaitlested(false)
+           setWaitlisted(false)
         }
 
     } catch (error) {

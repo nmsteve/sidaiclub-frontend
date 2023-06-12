@@ -1,10 +1,10 @@
 import React from "react";
 // import {logo} from ""
-import { FaDiscord, FaTwitter, FaInstagram } from "react-icons/fa";
+import {FaTwitter,} from "react-icons/fa";
 
-import { connectMetaMask,formatAddress, handleDisconnect} from '../connect/connectChain'
+import { connectMetaMask,formatAddress} from '../connect/connectChain'
 
-import { AiOutlineUser, AiOutlineLogout } from 'react-icons/ai';
+import { AiOutlineUser, } from 'react-icons/ai';
 
 
 const Navbar = ({connectedAddress, setConnectedAddress}) => {
@@ -17,14 +17,8 @@ const Navbar = ({connectedAddress, setConnectedAddress}) => {
         </div>
         <div className="grid grid-cols-2  md:gap-6 items-center px-2 md:mr-16 ">
           <div className="flex flex-row gap-4 md:gap-6 sm:gap-3 mr-8">
-            <a href="https://discord.gg/67KDsmxBKs" target="_blank" rel="noopener noreferrer">
-              <FaDiscord className="text-white text-lg md:text-xl cursor-pointer hover:text-[#DC7171]" />
-            </a>
-            <a href="/https://twitter.com/EntitoSidaiNFTs" target="_blank" rel="noopener noreferrer">
+            <a href="https://twitter.com/EntitoSidaiNFTs" target="_blank" rel="noopener noreferrer">
               <FaTwitter className="text-white text-lg md:text-xl cursor-pointer hover:text-[#DC7171]" />
-            </a>
-            <a href="https://www.instagram.com/entitosidainfts" target="_blank" rel="noopener noreferrer">
-              <FaInstagram className="text-white text-lg md:text-xl cursor-pointer hover:text-[#DC7171]" />
             </a>
           </div>
           {connectedAddress ? (
