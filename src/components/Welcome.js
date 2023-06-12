@@ -50,7 +50,7 @@ const Welcome = ({waitlisted}) => {
         <p className="text-white  md:text-lg font-serif tracking-wide g-2 whitespace-pre-line leading-8 text-base mx-6 md:w-1/2 text-center md:mx-auto">
           Introducing the
           <span className="text-[#DC7171]"> Entito Sidai Collection</span> - a
-          limited edition set of 1,000 NFTs that embody the essence of Maasai
+          limited edition set of  <span className="text-[#DC7171]">2,000</span>  NFTs that embody the essence of Maasai
           culture, diversity, and beauty. In the Maa language, "Entito (
           |en’-tee-toh| )"
           <FaVolumeUp
@@ -65,8 +65,7 @@ const Welcome = ({waitlisted}) => {
           means beautiful - and that's precisely what this collection
           represents: the beauty of a Maasai girl adorned in traditional beaded
           ornaments. Each NFT features a unique pattern inspired by the
-          intricate details of the ornaments, including a hair cover, forehead
-          bracelet, earrings, and neck bracelet.
+          intricate details of the ornaments, including a hair cover, forehead gear, earrings, and neck bracelet.
           <audio ref={audio1Ref}>
             <source src={"/audio/entito.ogg"} type="audio/ogg" />
           </audio>
@@ -99,20 +98,26 @@ const Welcome = ({waitlisted}) => {
           : 
           <div className="bg-[#DC71712E] rounded-lg border-[2px] border-dashed border-[#DC7171] mt-10 w-2/5 mx-auto p-8 text-center text-white">
             <p className="font-serif mb-5">
-              The collection is scheduled to be launched on {" "} 
-              <span className="text-[#F2CECE]"> July 10, 2023</span> via an OpenSea drop for 0.1 ETH . However, you
-              can join Waitlist to get a {" "}
+              This collection is under creation and will be launched latest  {" "} 
+              <span className="text-[#F2CECE]"> July 31st, 2023</span> via an OpenSea drop for 0.05 ETH .
+              Join waitlist to get a {" "}
               <span className="text-[#dc7171ee]">25% discount</span>.
             </p>
+
+            {waitlisted ?
            
-            <button
-              onClick={() => joinWaitList(setSeatsFilled)}
-              className={`bg-[#DC7171] hover:bg-gray-300 border-[1px] p-2 rounded w-28`}
-              disabled={waitlisted}
-              
-            >
-              {waitlisted ? 'Joined':'Join'}
-            </button>
+              <button
+                className={`bg-gray-500 border-[1px] p-2 rounded w-28`}
+                disabled={waitlisted}
+              >
+                Joined
+              </button> :
+              <button
+                onClick={() => joinWaitList(setSeatsFilled)}
+                className={`bg-[#DC7171] hover:bg-gray-300 border-[1px] p-2 rounded w-28`}
+              >
+                Join
+              </button> }
 
             <p className="font-serif mt-3 ">{seatsFilled} / 500</p>
            
