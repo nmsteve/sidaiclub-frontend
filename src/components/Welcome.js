@@ -96,7 +96,7 @@ const Welcome = ({waitlisted}) => {
             </div>
           </div>
           : 
-          <div className="bg-[#DC71712E] rounded-lg border-[2px] border-dashed border-[#DC7171] mt-10 w-2/5 mx-auto p-8 text-center text-white">
+          <div className="bg-[#DC71712E] rounded-lg border-[2px] border-dashed border-[#DC7171] mt-10 md:w-2/5 sm:w-3/5 xs:w-4/5 mx-auto p-8 text-center text-white">
             <p className="font-serif mb-5">
               This collection is under creation and will be launched latest  {" "} 
               <span className="text-[#F2CECE]"> July 31st, 2023</span> via an OpenSea drop for 0.05 ETH .
