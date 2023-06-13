@@ -61,15 +61,23 @@ const contractABI = [
     }
 ]
 
-//Deployed contract address
-const contractAddress = "0xA5f62C75073E47ECd140a5234Ba514A1C36Eed27"
+// Deployed contract address
+let contractAddress = "0xc91037E440ad3001726b0E701759eEBb6B6ef688";
 
-//ethereum event reload on chain change
+// Ethereum event reload on chain change
 if (ethereum) {
-    ethereum.on('chainChanged', () => {
-        window.location.reload(false)
-    })
+    ethereum.on('chainChanged', (chainId) => {
+        if (chainId === '0x1' || chainId === '0x61') { // Sepolia (97) and Mainnet (1)
+            // Set the deployment address based on the network
+            if (chainId === '0x1') {
+                contractAddress = "0xc91037E440ad3001726b0E701759eEBb6B6ef688";
+            } else if (chainId === '0x61') {
+                contractAddress = "0xA5f62C75073E47ECd140a5234Ba514A1C36Eed27";
+            }
 
+            window.location.reload(false);
+        }
+    });
 }
 
 export const checkIfConnected = async (setConnectedAddress) => {
@@ -150,7 +158,6 @@ export const joinWaitList = async (setSeatsFilled) => {
 
     //required to intract with a deployed contract
     const signer = await provider.getSigner(ethereum.selectedAddress)
-    const contractAddress = "0xA5f62C75073E47ECd140a5234Ba514A1C36Eed27"
     const contractABI =['function joinWaitlist() public']   
 
     const contract = new ethers.Contract(contractAddress, contractABI, signer);

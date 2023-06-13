@@ -31,8 +31,8 @@ function App() {
     checkConnected()
     checkJoined()
 
-    console.log(connectedAddress)
-    console.log(waitlisted)
+    //console.log(connectedAddress)
+    //console.log(waitlisted)
 
   }, [connectedAddress, waitlisted])
 
