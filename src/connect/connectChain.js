@@ -62,8 +62,8 @@ const contractABI = [
 ]
 
 // Deployed contract address
-let contractAddress = "0xA5f62C75073E47ECd140a5234Ba514A1C36Eed27";
-//let contractAddress = "0xc91037E440ad3001726b0E701759eEBb6B6ef688";
+//let contractAddress = "0xA5f62C75073E47ECd140a5234Ba514A1C36Eed27";
+let contractAddress = "0xc91037E440ad3001726b0E701759eEBb6B6ef688";
 
 
 export const checkIfConnected = async (setConnectedAddress) => {
