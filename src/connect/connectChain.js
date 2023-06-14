@@ -62,23 +62,9 @@ const contractABI = [
 ]
 
 // Deployed contract address
+//let contractAddress = "0xA5f62C75073E47ECd140a5234Ba514A1C36Eed27";
 let contractAddress = "0xc91037E440ad3001726b0E701759eEBb6B6ef688";
 
-// Ethereum event reload on chain change
-if (ethereum) {
-    ethereum.on('chainChanged', (chainId) => {
-        if (chainId === '0x1' || chainId === '0x61') { // Sepolia (97) and Mainnet (1)
-            // Set the deployment address based on the network
-            if (chainId === '0x1') {
-                contractAddress = "0xc91037E440ad3001726b0E701759eEBb6B6ef688";
-            } else if (chainId === '0x61') {
-                contractAddress = "0xA5f62C75073E47ECd140a5234Ba514A1C36Eed27";
-            }
-
-            window.location.reload(false);
-        }
-    });
-}
 
 export const checkIfConnected = async (setConnectedAddress) => {
 
@@ -146,7 +132,7 @@ export const checkIfJoined = async (setWaitlisted) => {
 
 }
 
-export const joinWaitList = async (setSeatsFilled) => {
+export const joinWaitList = async () => {
 
     if (!ethereum) {
         alert("Please install MetaMask to connect.");
@@ -158,15 +144,12 @@ export const joinWaitList = async (setSeatsFilled) => {
 
     //required to intract with a deployed contract
     const signer = await provider.getSigner(ethereum.selectedAddress)
-    const contractABI =['function joinWaitlist() public']   
-
+     
     const contract = new ethers.Contract(contractAddress, contractABI, signer);
 
     try {
         const transaction = await contract.joinWaitlist();
         await transaction.wait(1);
-        const seatsFilled = await contract.seatsFilled()
-        setSeatsFilled(seatsFilled)
         console.log("Successfully joined the waitlist!");
     } catch (error) {
         console.error("Error joining the waitlist:", error);
@@ -176,6 +159,10 @@ export const joinWaitList = async (setSeatsFilled) => {
             alert('Error joining the waitlist. Please try again later.');
         }
     }
+
+    await checkSeatFilled()
+
+    window.location.reload(false);
 }
 
 export const checkSeatFilled = async (setSeatsFilled) => {
