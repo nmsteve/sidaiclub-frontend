@@ -65,7 +65,7 @@ const Welcome = ({waitlisted}) => {
           means beautiful - and that's precisely what this collection
           represents: the beauty of a Maasai girl adorned in traditional beaded
           ornaments. Each NFT features a unique pattern inspired by the
-          intricate details of the ornaments, including a hair cover, forehead gear, earrings, and neck bracelet.
+          intricate details of the ornaments, including a hair cover, forehead gear, earrings, and necklace.
           <audio ref={audio1Ref}>
             <source src={"/audio/entito.ogg"} type="audio/ogg" />
           </audio>
