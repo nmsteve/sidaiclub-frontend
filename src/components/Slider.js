@@ -6,9 +6,9 @@ function Slider({ number }) {
       <div className="relative pt-1">
         <div className="flex justify-between mb-2">
           <span className="text-sm text-white font-bold">
-            {(number / 10000) * 100}%
+            {(number / 2000) * 100}%
           </span>
-          <span className="text-sm text-white">{number}/10000</span>
+          <span className="text-sm text-white">{number}/2000</span>
         </div>
         <div className="overflow-hidden h-[4px] mb-4 text-xs flex rounded bg-gray-200">
           <div

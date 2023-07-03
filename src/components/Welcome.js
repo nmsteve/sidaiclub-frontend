@@ -1,16 +1,17 @@
 import React, { useEffect, useRef, useState } from "react";
 import Slider from "./Slider";
 import { FaVolumeUp } from "react-icons/fa";
-import { checkSeatFilled, joinWaitList } from "../connect/connectChain";
+//import { checkSeatFilled, joinWaitList } from "../connect/connectChain";
 
 
 const Welcome = ({waitlisted}) => {
 
-  const [number, setNumber] = useState(1);
-  const [showMint, setShowMint] = useState(false)
-  const [seatsFilled, setSeatsFilled] = useState(0)
+  const [number, setNumber] = useState(0);
+  const [countdown, setCountdown] = useState('');
+  // const [showMint, setShowMint] = useState(true)
+  // const [seatsFilled, setSeatsFilled] = useState(0)
  
-
+  
   const audio1Ref = useRef(null);
   const audio2Ref = useRef(null);
 
@@ -18,24 +19,38 @@ const Welcome = ({waitlisted}) => {
       audioRef?.current.play();
   };
 
-  function handleIncrement() {
-    setNumber(number + 1);
-  }
-
-  function handleDecrement() {
-    if (number > 1) {
-      setNumber(number - 1);
-    }
-  }
 
   useEffect(() => {
-    checkSeatFilled(setSeatsFilled)
-  },[])
+    const countdownDate = new Date('July 29, 2023 00:00:00').getTime();
+
+    const timer = setInterval(() => {
+      const now = new Date().getTime();
+      const distance = countdownDate - now;
+
+      if (distance < 0) {
+        clearInterval(timer);
+        setCountdown('Expired');
+      } else {
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor(
+          (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+        );
+        const minutes = Math.floor(
+          (distance % (1000 * 60 * 60)) / (1000 * 60)
+        );
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        setCountdown(`${days} days ${hours} hours ${minutes} minutes ${seconds} seconds`);
+      }
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, []);
 
 
   return (
     <div className="relative max-w-screen">
-      
+
       <div className="relative z-4 pt-16 md:pt-24">
         <h1 className="text-white text-center font-extrabold text-2xl md:text-5xl">
           Welcome to the
@@ -74,57 +89,43 @@ const Welcome = ({waitlisted}) => {
           </audio>
         </p>
 
-        {showMint ?
+      
           <div>
-            <Slider number={5000} />
+            <Slider number={number} />
             <p className="text-white text-center text-lg font-bold md:text-2xl">
-              0.1 ETH
+              0.02 ETH
             </p>
             <div className="flex justify-center gap-4 my-4">
-              <div className="border-2 p-2 flex items-center rounded-sm flex-row gap-6 border-[#D08A21]">
-                <button className="text-white text-2xl" onClick={handleDecrement}>
-                  -
-                </button>
-                <p className="text-white text-2xl">{number}</p>
-                <button className="text-white text-2xl" onClick={handleIncrement}>
-                  +
-                </button>
-              </div>
-              <button className="bg-[#D08A21] hover:bg-[#744704] py-2 flex items-center md:py-4 px-6 text-xl rounded-sm">
-                <p className="text-white">Mint</p>
-              </button>
-            </div>
+            <a href="https://opensea.io/collection/entito-sidai/drop" target="_blank" rel="noreferrer" className="bg-[#D08A21] hover:bg-[#744704] py-2 flex items-center md:py-4 px-6 text-xl rounded-sm">
+                <p className="text-white"> Mint on OpenSea</p>
+            </a>
           </div>
-          : 
-          <div className="bg-[#DC71712E] rounded-lg border-[2px] border-dashed border-[#DC7171] mt-10 md:w-2/5 sm:w-3/5 xs:w-4/5 mx-auto p-8 text-center text-white">
-            <p className="font-serif mb-5">
-              This collection is under creation and will be launched latest  {" "} 
-              <span className="text-[#F2CECE]"> July 31st, 2023</span> via an OpenSea drop for 0.025 ETH .
-              Join waitlist to get a {" "}
-              <span className="text-[#dc7171ee]">25% discount</span>.
-            </p>
-
-            {waitlisted ?
-           
-              <button
-                className={`bg-gray-500 border-[1px] p-2 rounded w-28`}
-                disabled={waitlisted}
-              >
-                Joined
-              </button> :
-              <button
-                onClick={() => joinWaitList(setSeatsFilled)}
-                className={`bg-[#DC7171] hover:bg-gray-300 border-[1px] p-2 rounded w-28`}
-              >
-                Join
-              </button> }
-
-            <p className="font-serif mt-3 ">{seatsFilled} / 500</p>
-           
-            <p className="font-serif mt-10">Joining is FREE; however, paying the transaction gas fee is proof of genuine interest.</p>
-           
+          <div className="flex justify-center gap-4 my-4">
+            {countdown !== 'Expired' && (
+              <>
+                <div className="flex flex-col items-center">
+                  <button className="text-white text-sm font-bold">{countdown.split(' ')[0]}</button>
+                  <span className="text-xs">Days</span>
+                </div>
+                <div className="flex flex-col items-center">
+                  <button className="text-white text-sm font-bold">{countdown.split(' ')[2]}</button>
+                  <span className="text-xs">Hours</span>
+                </div>
+                <div className="flex flex-col items-center">
+                  <button className="text-white text-sm font-bold">{countdown.split(' ')[4]}</button>
+                  <span className="text-xs">Minutes</span>
+                </div>
+                <div className="flex flex-col items-center">
+                  <button className="text-white text-sm font-bold">{countdown.split(' ')[6]}</button>
+                  <span className="text-xs">Seconds</span>
+                </div>
+              </>
+            )}
+            {countdown === 'Expired' && <span className="text-white">Expired</span>}
           </div>
-        }
+
+          </div>
+      
         <img
           className="w-screen z-4 bottom-0"
           src={"/images/Frame.svg"}
