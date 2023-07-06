@@ -8,6 +8,7 @@ import Welcome from "./components/Welcome";
 import Details from "./components/Details";
 import Hearts from "./components/Hearts";
 import { checkIfConnected, checkIfJoined } from './connect/connectChain'
+import Charity from "./components/Charity";
 const { ethereum } = window;
 
 function App() {
@@ -43,6 +44,7 @@ function App() {
       <Hero />
       <Welcome connectedAddress={connectedAddress} waitlisted={waitlisted} />
       <History />
+      <Charity/>
       <Details/>
       <Hearts />
       
