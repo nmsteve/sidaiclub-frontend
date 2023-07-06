@@ -101,8 +101,7 @@ const Welcome = ({waitlisted}) => {
             </Carousel>
           </div>
 
-          <div className="md:w-3/5">
-            <div className="ml-10 mr-3 xs:mt-10">
+          <div className="md:w-3/5 ml-10 mr-3 xs:mt-10 md:mt-0">
               <p className="text-white  md:text-lg font-serif tracking-wide g-2 whitespace-pre-line leading-8 text-base text-left md:mx-auto">
                 Introducing the
                 <span className="text-[#DC7171]"> Entito Sidai Collection</span> - a
@@ -129,8 +128,6 @@ const Welcome = ({waitlisted}) => {
                   <source src={"/audio/sidai.ogg"} type="audio/ogg" />
                 </audio>
               </p>
-            </div>
-           
             <div>
                 <Slider number={number} />
                 <p className="text-white text-center text-lg font-bold md:text-2xl">
