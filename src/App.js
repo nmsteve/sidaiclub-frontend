@@ -3,6 +3,7 @@ import Navbar from "./components/Navbar";
 import "./App.css";
 import React, { useEffect, useState } from "react";
 import Hero from "./components/Hero";
+import History from "./components/History";
 import Welcome from "./components/Welcome";
 import Details from "./components/Details";
 import Hearts from "./components/Hearts";
@@ -39,8 +40,9 @@ function App() {
   return (
     <div className="min-h-screen bg-[#2A215F] w-screen overflow-hidden">
       <Navbar connectedAddress={connectedAddress} setConnectedAddress={setConnectedAddress}/>
-      <Hero/>
-      <Welcome connectedAddress={connectedAddress} waitlisted={waitlisted }/>
+      <Hero />
+      <Welcome connectedAddress={connectedAddress} waitlisted={waitlisted} />
+      <History />
       <Details/>
       <Hearts />
       
