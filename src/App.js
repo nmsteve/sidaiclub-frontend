@@ -3,12 +3,12 @@ import Navbar from "./components/Navbar";
 import "./App.css";
 import React, { useEffect, useState } from "react";
 import Hero from "./components/Hero";
-import History from "./components/History";
 import Welcome from "./components/Welcome";
-import Details from "./components/Details";
-import Hearts from "./components/Hearts";
-import { checkIfConnected, checkIfJoined } from './connect/connectChain'
+import History from "./components/History";
 import Charity from "./components/Charity";
+import Club from "./components/Club";
+
+import { checkIfConnected, checkIfJoined } from './connect/connectChain'
 const { ethereum } = window;
 
 function App() {
@@ -45,8 +45,8 @@ function App() {
       <Welcome connectedAddress={connectedAddress} waitlisted={waitlisted} />
       <History />
       <Charity/>
-      <Details/>
-      <Hearts />
+      <Club/>
+      
       
     </div>
   );
