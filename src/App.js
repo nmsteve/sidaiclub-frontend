@@ -4,9 +4,12 @@ import "./App.css";
 import React, { useEffect, useState } from "react";
 import Hero from "./components/Hero";
 import Welcome from "./components/Welcome";
-import Details from "./components/Details";
-import Hearts from "./components/Hearts";
+import History from "./components/History";
+import Charity from "./components/Charity";
+import Club from "./components/Club";
+
 import { checkIfConnected, checkIfJoined } from './connect/connectChain'
+import Art from "./components/Art";
 const { ethereum } = window;
 
 function App() {
@@ -38,12 +41,14 @@ function App() {
 
   return (
     <div className="min-h-screen bg-[#2A215F] w-screen overflow-hidden">
-      <Navbar connectedAddress={connectedAddress} setConnectedAddress={setConnectedAddress} /                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        >
-
-      <Hero/>
-      <Welcome connectedAddress={connectedAddress} waitlisted={waitlisted }/>
-      <Details/>
-      <Hearts />
+      <Navbar connectedAddress={connectedAddress} setConnectedAddress={setConnectedAddress}/>
+      <Hero />
+      <Welcome connectedAddress={connectedAddress} waitlisted={waitlisted} />
+      <History />
+      <Charity/>
+      <Club />
+      <Art/>
+      
       
     </div>
   );

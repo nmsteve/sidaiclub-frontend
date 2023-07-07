@@ -1,14 +1,11 @@
 import React from "react";
-import {FaTwitter } from "react-icons/fa";
+import { FaTwitter } from "react-icons/fa";
+
 
 const Details = () => {
   return (
     <div className="relative">
-      <img
-        className="w-screen absolute z-0"
-        src={"/images/Rectangle.svg"}
-        alt="logo"
-      />
+     
       <div className=" relative z-4">
         <h1 className="text-[#2A215F] text-center pt-6 xl:pt-32 sm:text-3xl lg:pt-28 sm:pt-16 md:pt-16 font-extrabold text-md lg:text-5xl">
           Join the <span className="">Sidai Club</span> and
@@ -25,7 +22,6 @@ const Details = () => {
         </p>
         <p className="text-xs lg:text-xl sm:text-base xl:mt-16 lg:mt-12 text-center text-[#DC7171] mt-2 m">
          Stay updated, follow us on Twitter
-          
         </p>
         <div className="flex flex-row gap-2 xs:gap-12 xs:mt-1 items-center justify-center mt-2 sm:text-sm xs:text-xs font-bold">
           <a  href="https://twitter.com/EntitoSidaiNFTs" target="_blank" rel="noopener noreferrer" className="text-blue-500">
