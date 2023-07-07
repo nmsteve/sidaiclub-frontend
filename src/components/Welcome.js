@@ -4,22 +4,28 @@ import { FaVolumeUp } from "react-icons/fa";
 
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
+import { useMediaQuery } from 'react-responsive';
 
-const Welcome = ({waitlisted}) => {
+const Welcome = ({ waitlisted }) => {
+  
+  const isSmallScreen = useMediaQuery({ maxWidth: 640 });
 
   const [number, setNumber] = useState(0);
   const [countdown, setCountdown] = useState('');
   
 
   const [quantity, setQuantity] = useState(1);
+  const [price, setPrice] = useState(0.02)
 
   const handleIncrement = () => {
     setQuantity(quantity + 1);
+    setPrice((quantity + 1)* 0.02);
   };
 
   const handleDecrement = () => {
     if (quantity > 1) {
       setQuantity(quantity - 1);
+      setPrice((quantity - 1) * 0.02);
     }
   };
  
@@ -82,7 +88,7 @@ const Welcome = ({waitlisted}) => {
               showStatus={false}
               showThumbs={false}
               infiniteLoop={true}
-              autoPlay={true}
+              autoPlay={!isSmallScreen}
               interval={3000}
               stopOnHover={false}
             >
@@ -131,7 +137,7 @@ const Welcome = ({waitlisted}) => {
             <div>
                 <Slider number={number} />
                 <p className="text-white text-center text-lg font-bold md:text-2xl">
-                  0.02 ETH
+                 {price}
                 </p>
               <div className="flex justify-center gap-4 my-4">
                 <button className="bg-[#D08A21] hover:bg-[#744704] py-2 px-3 text-xl rounded-l-sm"
@@ -157,19 +163,19 @@ const Welcome = ({waitlisted}) => {
                     </div>
                     <div className="flex flex-col items-center">
                       <button className="text-white text-sm font-bold">{countdown.split(' ')[0]}</button>
-                      <span className="text-xs">Days</span>
+                      <span className="text-xs text-white">Days</span>
                     </div>
                     <div className="flex flex-col items-center">
                       <button className="text-white text-sm font-bold">{countdown.split(' ')[2]}</button>
-                      <span className="text-xs">Hours</span>
+                      <span className="text-xs text-white">Hours</span>
                     </div>
                     <div className="flex flex-col items-center">
                       <button className="text-white text-sm font-bold">{countdown.split(' ')[4]}</button>
-                      <span className="text-xs">Minutes</span>
+                      <span className="text-xs text-white">Minutes</span>
                     </div>
                     <div className="flex flex-col items-center">
                       <button className="text-white text-sm font-bold">{countdown.split(' ')[6]}</button>
-                      <span className="text-xs">Seconds</span>
+                      <span className="text-xs text-white">Seconds</span>
                     </div>
                   </>
                 )}

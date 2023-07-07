@@ -5,10 +5,10 @@ const Club = () => {
   return (
     <div className="relative max-w-screen">
       <div className="relative z-4 pt-16 md:pt-24">
-        <h1 className="text-center font-extrabold text-2xl md:text-5xl">
+        <h1 className="text-center text-white font-extrabold text-2xl md:text-5xl">
           Join the <span className="text-[#FBCCCC]">Sidai Club</span>  and
         </h1>
-        <h1 className="text-center font-extrabold sm:text-3xl  text-md lg:text-5xl">
+        <h1 className="text-center text-white font-extrabold sm:text-3xl  text-md lg:text-5xl">
           Make a Difference
         </h1>
 

@@ -9,6 +9,7 @@ import Charity from "./components/Charity";
 import Club from "./components/Club";
 
 import { checkIfConnected, checkIfJoined } from './connect/connectChain'
+import Art from "./components/Art";
 const { ethereum } = window;
 
 function App() {
@@ -45,7 +46,8 @@ function App() {
       <Welcome connectedAddress={connectedAddress} waitlisted={waitlisted} />
       <History />
       <Charity/>
-      <Club/>
+      <Club />
+      <Art/>
       
       
     </div>
