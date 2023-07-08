@@ -93,16 +93,16 @@ const Welcome = ({ waitlisted }) => {
               stopOnHover={false}
             >
               <div>
-                <img src="/images/top/8.jpg" alt="1" className="w-full" />
+                <img src="https://res.cloudinary.com/dk8epvq9b/image/upload/v1688800993/8_x0floh.jpg" alt="1" className="w-full" />
               </div>
               <div>
-                <img src="/images/top/20.jpg" alt="2" className="w-full" />
+                <img src="https://res.cloudinary.com/dk8epvq9b/image/upload/v1688800963/22_knlinz.jpg" alt="2" className="w-full" />
               </div>
               <div>
-                <img src="/images/top/22.jpg" alt="3" className="w-full" />
+                <img src="https://res.cloudinary.com/dk8epvq9b/image/upload/v1688800931/20_dmlnhb.jpg" alt="3" className="w-full" />
               </div>
               <div>
-                <img src="/images/top/25.jpg" alt="4" className="w-full" />
+                <img src="https://res.cloudinary.com/dk8epvq9b/image/upload/v1688800896/25_bh5gax.jpg" alt="4" className="w-full" />
               </div>
             </Carousel>
           </div>
