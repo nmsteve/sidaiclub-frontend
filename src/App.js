@@ -3,13 +3,13 @@ import Navbar from "./components/Navbar";
 import "./App.css";
 import React, { useEffect, useState } from "react";
 import Hero from "./components/Hero";
-import Welcome from "./components/Welcome";
-import History from "./components/History";
-import Charity from "./components/Charity";
-import Club from "./components/Club";
+import Welcome from "./components/1.Welcome";
+import History from "./components/2.History";
+import Charity from "./components/3.Charity";
+import Club from "./components/4.Club";
 
 import { checkIfConnected, checkIfJoined } from './connect/connectChain'
-import Art from "./components/Art";
+import Art from "./components/5.Art";
 const { ethereum } = window;
 
 function App() {
