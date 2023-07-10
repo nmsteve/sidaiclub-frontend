@@ -11,7 +11,7 @@ const History = () => {
     width: '100%',
     height: '390',
     playerVars: {
-      autoplay: 1, // Set autoplay to 1 for autoplaying the video
+      autoplay: 0, // Set autoplay to 1 for autoplaying the video
     },
   };
 
