@@ -144,7 +144,7 @@ const Welcome = () => {
             <div>
                 <Slider number={number} />
                 <p className="text-white text-center text-lg font-bold md:text-2xl">
-                 {price}
+                 {price} ETH
                 </p>
               <div className="flex justify-center gap-4 my-4">
                 <button className="bg-[#D08A21] hover:bg-[#744704] py-2 px-3 text-xl rounded-l-sm"
