@@ -14,7 +14,7 @@ const Club = () => {
 
         <div className="flex flex-col md:flex-row mx-4 mt-10">
           <div className="md:w-3/6">
-            <img src="/images/Club.png"/>
+            <img src="https://res.cloudinary.com/dk8epvq9b/image/upload/v1688801596/Club_hu7bak.png"/>
           </div>
           <div className="md:w-3/6">
             <div className="ml-10 mr-3 xs:mt-10 md:mt-0">

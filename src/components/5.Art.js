@@ -12,7 +12,7 @@ const Art = () => {
         <div className="flex flex-col md:flex-row mx-4 mt-10 mb-5">
 
         <div className="md:w-3/6">
-            <img src="/images/Art Banner.png" />
+            <img src="https://res.cloudinary.com/dk8epvq9b/image/upload/v1688801495/Art_Banner_nuy4bc.png" />
           </div>
           
           <div className="md:w-3/6">

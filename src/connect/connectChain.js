@@ -62,9 +62,9 @@ const contractABI = [
 ]
 
 // Deployed contract address
-//let contractAddress = "0xA5f62C75073E47ECd140a5234Ba514A1C36Eed27";
+// Goerli test net
 let contractAddress = "0xc91037E440ad3001726b0E701759eEBb6B6ef688";
-
+// Mainnet will be deployed on 18th JULY
 
 export const checkIfConnected = async (setConnectedAddress) => {
 
@@ -113,74 +113,74 @@ export const handleDisconnect = async (setConnectedAddress) => {
     }
 };
 
-export const checkIfJoined = async (setWaitlisted) => {
+// export const checkIfJoined = async (setWaitlisted) => {
    
-    const contract = new ethers.Contract(contractAddress, contractABI, provider);
+//     const contract = new ethers.Contract(contractAddress, contractABI, provider);
 
-    try {
+//     try {
 
-        const waitlisted = await contract.waitlisted(ethereum.selectedAddress)
-        if (waitlisted === true) {
-           setWaitlisted(true)
-        } else{
-           setWaitlisted(false)
-        }
+//         const waitlisted = await contract.waitlisted(ethereum.selectedAddress)
+//         if (waitlisted === true) {
+//            setWaitlisted(true)
+//         } else{
+//            setWaitlisted(false)
+//         }
 
-    } catch (error) {
-        console.error(error.message)
-    }
+//     } catch (error) {
+//         console.error(error.message)
+//     }
 
-}
+// }
 
-export const joinWaitList = async () => {
+// export const joinWaitList = async () => {
 
-    if (!ethereum) {
-        alert("Please install MetaMask to connect.");
-        return;
-    }
+//     if (!ethereum) {
+//         alert("Please install MetaMask to connect.");
+//         return;
+//     }
 
-    //connect if not connected
-    await ethereum.request({ method: 'eth_requestAccounts' });
+//     //connect if not connected
+//     await ethereum.request({ method: 'eth_requestAccounts' });
 
-    //required to intract with a deployed contract
-    const signer = await provider.getSigner(ethereum.selectedAddress)
+//     //required to intract with a deployed contract
+//     const signer = await provider.getSigner(ethereum.selectedAddress)
      
-    const contract = new ethers.Contract(contractAddress, contractABI, signer);
+//     const contract = new ethers.Contract(contractAddress, contractABI, signer);
 
-    try {
-        const transaction = await contract.joinWaitlist();
-        await transaction.wait(1);
-        console.log("Successfully joined the waitlist!");
-    } catch (error) {
-        console.error("Error joining the waitlist:", error);
-        if (error.message.includes('Already on the waitlist')) {
-            alert(`Transaction reverted: Already on the waitlist'`);
-        } else {
-            alert('Error joining the waitlist. Please try again later.');
-        }
-    }
+//     try {
+//         const transaction = await contract.joinWaitlist();
+//         await transaction.wait(1);
+//         console.log("Successfully joined the waitlist!");
+//     } catch (error) {
+//         console.error("Error joining the waitlist:", error);
+//         if (error.message.includes('Already on the waitlist')) {
+//             alert(`Transaction reverted: Already on the waitlist'`);
+//         } else {
+//             alert('Error joining the waitlist. Please try again later.');
+//         }
+//     }
 
-    await checkSeatFilled()
+//     await checkSeatFilled()
 
-    window.location.reload(false);
-}
+//     window.location.reload(false);
+// }
 
-export const checkSeatFilled = async (setSeatsFilled) => {
+// export const checkSeatFilled = async (setSeatsFilled) => {
 
-    //connect to deployed contract
-    const contract = new ethers.Contract(contractAddress, contractABI, provider)
+//     //connect to deployed contract
+//     const contract = new ethers.Contract(contractAddress, contractABI, provider)
 
-    try {
-        const seatsFilled = (await contract.seatsFilled()).toString()
-        setSeatsFilled(seatsFilled)
+//     try {
+//         const seatsFilled = (await contract.seatsFilled()).toString()
+//         setSeatsFilled(seatsFilled)
         
         
-    } catch (error) {
-        console.error(error.message)
+//     } catch (error) {
+//         console.error(error.message)
         
-    }
+//     }
 
 
-}
+// }
 
     
