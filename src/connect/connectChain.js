@@ -9,7 +9,7 @@ let provider = new ethers.BrowserProvider(window.ethereum)
 // Deployed contract address
 // Sepolia
 let sepoliaAddress = "0x5349d651f8c8c523d01917472a031c22F6cE7CDb";
-// Mainnet (will be deployed on 18th JULY)
+// Mainnet (will be deployed on 05TH AUG)
 let mainnetAddress = '0x0000000000000000000000000000000000000000'
 
 export const checkIfConnected = async (setConnectedAddress) => {
