@@ -72,7 +72,7 @@ export const mint = async (amount, setMinted, setSupply) => {
     console.log(contractAddress)
 
     if (contractAddress === '0x0000000000000000000000000000000000000000') {
-        alert('Mint day on 5TH August')
+        alert('Mint day on 26TH August')
         return
     }
 
