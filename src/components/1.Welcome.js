@@ -12,7 +12,7 @@ const { ethereum } = window;
 const Welcome = () => {
 
   const isSmallScreen = useMediaQuery({ maxWidth: 640 });
-
+  const mintPrice = 0.003
   const [supply, setSupply] = useState(0);
   const [minted, setMinted] = useState(0);
 
@@ -20,7 +20,7 @@ const Welcome = () => {
 
 
   const [quantity, setQuantity] = useState(1);
-  const [price, setPrice] = useState(0.02)
+  const [price, setPrice] = useState(mintPrice)
 
 
   const [connectedAddress, setConnectedAddress] = useState()
@@ -36,13 +36,13 @@ const Welcome = () => {
 
   const handleIncrement = () => {
     setQuantity(quantity + 1);
-    setPrice((quantity + 1) * 0.02);
+    setPrice((quantity + 1) * mintPrice);
   };
 
   const handleDecrement = () => {
     if (quantity > 1) {
       setQuantity(quantity - 1);
-      setPrice((quantity - 1) * 0.02);
+      setPrice((quantity - 1) * mintPrice);
     }
   };
 
@@ -167,7 +167,7 @@ const Welcome = () => {
             <div>
               <Slider supply={supply} />
               <p className="text-white text-center text-lg font-bold md:text-2xl">
-                {price} ETH
+                {price.toFixed(3)} ETH
               </p>
               <div className="flex justify-center gap-4 my-4">
                 <button className="bg-[#D08A21] hover:bg-[#744704] py-2 px-3 text-xl rounded-l-sm"
@@ -182,7 +182,7 @@ const Welcome = () => {
                   <span className="text-white font-bold">+</span>
                 </button>
                 <button className="bg-[#D08A21] hover:bg-[#744704] py-2 flex items-center md:py-4 px-6 text-xl rounded-sm"
-                  onClick={() => { mint(quantity, setMinted, setSupply) }}>
+                  onClick={() => { mint(quantity, setMinted, setSupply, price.toFixed(3)) }}>
                   <p className="text-white"> Mint </p>
                 </button>
               </div>

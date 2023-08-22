@@ -9,8 +9,8 @@ let provider = new ethers.BrowserProvider(window.ethereum)
 // Deployed contract address
 // Sepolia
 let sepoliaAddress = "0x5349d651f8c8c523d01917472a031c22F6cE7CDb";
-// Mainnet (will be deployed on 05TH AUG)
-let mainnetAddress = '0x0000000000000000000000000000000000000000'
+// Arbitrum
+let ArbitrumAddress = '0xc91037E440ad3001726b0E701759eEBb6B6ef688'
 
 export const checkIfConnected = async (setConnectedAddress) => {
 
@@ -59,7 +59,7 @@ export const handleDisconnect = async (setConnectedAddress) => {
     }
 };
 
-export const mint = async (amount, setMinted, setSupply) => {
+export const mint = async (amount, setMinted, setSupply, price) => {
 
 
     if (!ethereum) {
@@ -71,20 +71,23 @@ export const mint = async (amount, setMinted, setSupply) => {
     const contractAddress = await checkConnectedChain()
     console.log(contractAddress)
 
-    if (contractAddress === '0x0000000000000000000000000000000000000000') {
+    if (contractAddress === '0xc91037E440ad3001726b0E701759eEBb6B6ef688') {
         alert('Mint day on 26TH August')
         return
     }
 
     if (contractAddress === 'x') {
-        alert('Unsupported Chain: Please switch to mainnet')
+        alert('Unsupported Chain: Please switch to Arbitrum')
         return
     }
 
-    const bal = await checkBalance()
-    console.log(bal)
+    
+    
 
     try {
+
+        const bal = await checkBalance()
+        console.log(bal)
 
         //Get the signer
         const signer = await provider.getSigner()
@@ -92,8 +95,7 @@ export const mint = async (amount, setMinted, setSupply) => {
         // Create an instance of the contract
 
         const contract = new ethers.Contract(contractAddress, abi, signer);
-        //set price
-        const price = 0.02 * amount
+        //print price
         console.log(price)
 
         if (bal > price) {
@@ -165,11 +167,22 @@ export const checkSupply = async (setSupply) => {
 
 export const checkBalance = async () => {
 
+    //Check whether a wallent is installed
     if (!ethereum) {
         console.log("Please install MetaMask to connect.");
         return;
     }
 
+   //connect if not connected
+    if (ethereum.selectedAddress == null) {
+
+        try {
+            await ethereum.request({ method: 'eth_requestAccounts' });
+        } catch (error) {
+            console.error("Failed to connect to MetaMask:", error);
+        }
+    }
+    
     try {
 
         const bal = await provider.getBalance(ethereum.selectedAddress)
@@ -199,8 +212,8 @@ export const checkConnectedChain = async () => {
 
         switch (chainId) {
             //mainnet contract address
-            case "0x1":
-                return mainnetAddress;
+            case "0xa4b1":
+                return ArbitrumAddress;
             //sepolia connected address
             case '0xaa36a7':
                 return sepoliaAddress;
