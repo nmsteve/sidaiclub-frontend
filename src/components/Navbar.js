@@ -1,6 +1,4 @@
 import React from "react";
-// import {logo} from ""
-import {FaTwitter,} from "react-icons/fa";
 
 import { connectMetaMask,formatAddress} from '../connect/connectChain'
 
