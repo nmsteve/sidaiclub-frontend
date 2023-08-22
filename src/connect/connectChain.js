@@ -44,12 +44,6 @@ export const connectMetaMask = async (setConnectedAddress) => {
     }
 };
 
-export const formatAddress = (address) => {
-    const firstFour = address.substring(0, 4);
-    const lastFour = address.substring(address.length - 4);
-    return `${firstFour}...${lastFour}`;
-};
-
 export const handleDisconnect = async (setConnectedAddress) => {
     try {
         setConnectedAddress('');
@@ -61,16 +55,18 @@ export const handleDisconnect = async (setConnectedAddress) => {
 
 export const mint = async (amount, setMinted, setSupply, price) => {
 
-
+   // Check if metamask is installed
     if (!ethereum) {
         console.log("Please install MetaMask to connect.");
         alert("Please install MetaMask to connect.")
         return;
     }
 
-    const contractAddress = await checkConnectedChain()
-    console.log(contractAddress)
+    //connect if not connected
+    await ethereum.request({ method: 'eth_requestAccounts' });
 
+    const contractAddress = await checkConnectedChain()
+    
     if (contractAddress === '0xc91037E440ad3001726b0E701759eEBb6B6ef688') {
         alert('Mint day on 26TH August')
         return
@@ -78,12 +74,11 @@ export const mint = async (amount, setMinted, setSupply, price) => {
 
     if (contractAddress === 'x') {
         alert('Unsupported Chain: Please switch to Arbitrum')
+        await switchChain()
         return
     }
 
     
-    
-
     try {
 
         const bal = await checkBalance()
@@ -141,6 +136,7 @@ export const checkMinted = async (setMinted) => {
 
 }
 
+// helper functions
 export const checkSupply = async (setSupply) => {
 
     if (!ethereum) {
@@ -169,7 +165,7 @@ export const checkBalance = async () => {
 
     //Check whether a wallent is installed
     if (!ethereum) {
-        console.log("Please install MetaMask to connect.");
+        alert("Please install MetaMask to connect.");
         return;
     }
 
@@ -211,7 +207,7 @@ export const checkConnectedChain = async () => {
         console.log(chainId)
 
         switch (chainId) {
-            //mainnet contract address
+            //Arbitrum contract address
             case "0xa4b1":
                 return ArbitrumAddress;
             //sepolia connected address
@@ -226,3 +222,33 @@ export const checkConnectedChain = async () => {
         console.error("Failed to get ChainId:", error);
     }
 };
+
+export const switchChain = async () => {
+
+    //check if metamask is installed
+    if (!ethereum) {
+        alert('Please install MetaMask')
+        return
+    }
+
+    ethereum
+        .request({
+            method: 'wallet_switchEthereumChain',
+            params: [{ chainId: "0xa4b1" }], // Chain IDs are hexadecimal
+        })
+        .then(() => {
+            console.log('Successfully switched to the new network');
+        })
+        .catch((error) => {
+            console.error('Error while switching network:', error);
+        });
+} 
+
+export const formatAddress = (address) => {
+    const firstFour = address.substring(0, 4);
+    const lastFour = address.substring(address.length - 4);
+    return `${firstFour}...${lastFour}`;
+};
+
+
+
