@@ -239,9 +239,34 @@ export const switchChain = async () => {
         .then(() => {
             console.log('Successfully switched to the new network');
         })
-        .catch((error) => {
-            console.error('Error while switching network:', error);
-        });
+        .catch(async (switchError) =>  {
+        // This error code indicates that the chain has not been added to MetaMask.
+        if (switchError.code === 4902) {
+            try {
+                await ethereum.request({
+                    method: 'wallet_addEthereumChain',
+                    params: [
+                        {
+                            chainId: "0xa4b1",
+                            chainName: 'Arbitrum One',
+                            rpcUrls: ['https://arb1.arbitrum.io/rpc'] /* ... */,
+                            blockExplorerUrls: ['https://arbiscan.io/'],
+                            nativeCurrency: {
+                                name: 'ETH',
+                                symbol: 'ETH',
+                                decimals: 18
+                            }
+                        },
+                    ],
+                });
+            } catch (addError) {
+                // handle "add" error
+                console.log('could not add network')
+            }
+        }
+        // handle other "switch" errors
+            console.log('could not switch')
+    })
 } 
 
 export const formatAddress = (address) => {
