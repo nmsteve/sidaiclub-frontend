@@ -53,7 +53,7 @@ export const handleDisconnect = async (setConnectedAddress) => {
     }
 };
 
-export const mint = async (amount, setMinted, setSupply, price) => {
+export const mint = async (amount, setMinted, setSupply, price, countdown) => {
 
    // Check if metamask is installed
     if (!ethereum) {
@@ -67,10 +67,10 @@ export const mint = async (amount, setMinted, setSupply, price) => {
 
     const contractAddress = await checkConnectedChain()
     
-    if (contractAddress === '0xc91037E440ad3001726b0E701759eEBb6B6ef688') {
-        alert('Mint day on 26TH August')
-        return
-    }
+    // if (contractAddress === '0xc91037E440ad3001726b0E701759eEBb6B6ef688') {
+    //     alert('Mint day on 26TH August')
+    //     return
+    // }
 
     if (contractAddress === 'x') {
         alert('Unsupported Chain: Please switch to Arbitrum')
