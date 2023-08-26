@@ -146,8 +146,9 @@ export const checkSupply = async (setSupply) => {
 
     try {
 
+        const contractAddress = await checkConnectedChain()
         // Create an instance of the contract
-        const contract = new ethers.Contract(sepoliaAddress, abi, provider);
+        const contract = new ethers.Contract(contractAddress, abi, provider);
         const supply = await contract.totalSupply()
         const formatedSupply = ethers.formatUnits(supply, 0)
         console.log(formatedSupply)
