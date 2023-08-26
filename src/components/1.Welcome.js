@@ -64,7 +64,7 @@ const Welcome = () => {
 
       if (distance < 0) {
         clearInterval(timer);
-        setCountdown('Expired');
+        setCountdown(' ');
       } else {
         const days = Math.floor(distance / (1000 * 60 * 60 * 24));
         const hours = Math.floor(
