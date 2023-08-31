@@ -75,7 +75,7 @@ export const mint = async (amount, setMinted, setSupply, price, countdown) => {
     //     return
     // }
 
-    if (contractAddress === 'x') {
+    if (contractAddress === 1) {
         alert('Unsupported Chain: Please switch to Arbitrum')
         await switchChain()
         return
