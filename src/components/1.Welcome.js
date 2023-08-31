@@ -64,7 +64,7 @@ const Welcome = () => {
 
       if (distance < 0) {
         clearInterval(timer);
-        setCountdown(' ');
+        setCountdown('Minting Now');
       } else {
         const days = Math.floor(distance / (1000 * 60 * 60 * 24));
         const hours = Math.floor(
@@ -88,6 +88,11 @@ const Welcome = () => {
     checkMinted(setMinted)
   }, [supply, minted, connectedAddress])
 
+  useEffect(() => {
+    //checkSupply(setSupply)
+    //console.log(supply)
+    
+  }, [])
 
   return (
     <div className="relative max-w-screen">
@@ -165,7 +170,7 @@ const Welcome = () => {
               </audio>
             </p>
             <div>
-              <Slider supply={supply} />
+               <Slider supply={supply}/> 
               <p className="text-white text-center text-lg font-bold md:text-2xl">
                 {price.toFixed(3)} ETH
               </p>
@@ -187,7 +192,7 @@ const Welcome = () => {
                 </button>
               </div>
               <div className="flex justify-center gap-4 my-4">
-                {countdown !== 'Expired' && (
+                {countdown !== 'Minting Now' && (
                   <>
                     <div className="text-white text-center my-4">
                       <span className="font-bold">26TH AUG, 2023</span>
@@ -210,7 +215,7 @@ const Welcome = () => {
                     </div>
                   </>
                 )}
-                {countdown === 'Expired' && <span className="text-white">Expired</span>}
+                {countdown === 'Minting Now' && <span className="text-white">Minting Now</span>}
               </div>
               {minted > 0 ?
                 <div className="flex justify-center gap-4 my-4">
