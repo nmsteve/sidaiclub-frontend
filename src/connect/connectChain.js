@@ -1,10 +1,13 @@
 import { ethers } from 'ethers'
 import { abi } from './abi.js'
+//require('dotenv').config()
 
 const { ethereum } = window;
 
 //accessing provived changed to this
 let provider = new ethers.BrowserProvider(window.ethereum)
+let JsonRpcProvider = new ethers.JsonRpcProvider(process.env.REACT_APP_ARB_HTTPS)
+
 
 // Deployed contract address
 // Sepolia
@@ -65,7 +68,7 @@ export const mint = async (amount, setMinted, setSupply, price, countdown) => {
     //connect if not connected
     await ethereum.request({ method: 'eth_requestAccounts' });
 
-    const contractAddress = await checkConnectedChain()
+    const contractAddress = await checkContractAddress()
     
     // if (contractAddress === '0xc91037E440ad3001726b0E701759eEBb6B6ef688') {
     //     alert('Mint day on 26TH August')
@@ -114,15 +117,34 @@ export const mint = async (amount, setMinted, setSupply, price, countdown) => {
 
 export const checkMinted = async (setMinted) => {
 
+    
+
     if (!ethereum) {
         console.log("Please install MetaMask to connect.");
         return;
     }
 
+
+    if (!ethereum.selectedAddress) {
+        console.log("No address connected")
+        return
+    }
+
+    const contractAddress = await checkContractAddress()
+
+    if (contractAddress === 1) {
+        console.log('Wrong Chain')
+        return;
+    }
+
+
+
     try {
 
+        
+
         // Create an instance of the contract
-        const contract = new ethers.Contract(sepoliaAddress, abi, provider);
+        const contract = new ethers.Contract(contractAddress, abi, provider);
         const balance = await contract.balanceOf(ethereum.selectedAddress)
         const balIndecimals = Number(balance)
         console.log(balIndecimals)
@@ -143,13 +165,21 @@ export const checkSupply = async (setSupply) => {
         console.log("Please install MetaMask to connect.");
         return;
     }
+    
+   try {
 
-    try {
-
-        const contractAddress = await checkConnectedChain()
+       const contractAddress = await checkContractAddress()
+       
+       if (contractAddress === 1) {
+           console.log('Wrong Chain')
+           return;
+       }
+       
         // Create an instance of the contract
-        const contract = new ethers.Contract(contractAddress, abi, provider);
+        const contract = new ethers.Contract(contractAddress, abi,provider);
+       
         const supply = await contract.totalSupply()
+        
         const formatedSupply = ethers.formatUnits(supply, 0)
         console.log(formatedSupply)
         setSupply(formatedSupply)
@@ -196,7 +226,7 @@ export const checkBalance = async () => {
 
 }
 
-export const checkConnectedChain = async () => {
+export const checkContractAddress = async () => {
     if (!ethereum) {
         alert("Please install MetaMask to connect.");
         return;
@@ -216,7 +246,7 @@ export const checkConnectedChain = async () => {
                 return sepoliaAddress;
 
             default:
-                return 'x';
+                return 1;
         }
 
     } catch (error) {
