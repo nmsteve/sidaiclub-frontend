@@ -169,7 +169,7 @@ const Welcome = () => {
                 <source src={"/audio/sidai.ogg"} type="audio/ogg" />
               </audio>
             </p>
-            <div>
+            {/* <div>
                <Slider supply={supply}/> 
               <p className="text-white text-center text-lg font-bold md:text-2xl">
                 {price.toFixed(3)} ETH
@@ -225,6 +225,15 @@ const Welcome = () => {
                 </div>
               }
 
+            </div> */}
+            <div className="flex justify-center gap-4 mt-20">
+              <button className="bg-[#D08A21] hover:bg-[#744704] py-2 px-3 text-xl rounded-sm">
+                <a href="https://opensea.io/collection/entitosidainfts" className="text-white" target="_blank" rel="noreferrer">Buy on OpenSea</a>
+              </button>
+              <button className="bg-[#D08A21] hover:bg-[#744704] py-2 px-3 text-xl rounded-sm">
+                <a href="https://wenmoon.market/collection/arbitrum/0xc91037e440ad3001726b0e701759eebb6b6ef688?tab=items"
+                  className="text-white" target="_blank" rel="noreferrer">Buy on WenMoon</a>
+              </button>
             </div>
           </div>
         </div>
